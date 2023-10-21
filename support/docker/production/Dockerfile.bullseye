@@ -1,4 +1,4 @@
-FROM node:18-bookworm-slim
+FROM node:16-bullseye-slim
 
 # Install dependencies
 RUN apt update \
@@ -36,7 +36,7 @@ ENV PEERTUBE_LOCAL_CONFIG /config
 VOLUME /data
 VOLUME /config
 
-COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY ./support/docker/production/entrypoint.sh /usr/local/bin/entrypoint.sh
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
 
 # Expose API and RTMP
